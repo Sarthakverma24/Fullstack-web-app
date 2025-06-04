@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  scylla:
+    container_name: scylla
+    image: scylladb/scylla
+    ports:
+      - "9042:9042"
+    volumes:
+      - scylla-data:/var/lib/scylla
+    networks:
+      - base-network
+    command: --smp 1 --overprovisioned 1
+    healthcheck:
+      test: ["CMD", "nodetool", "status"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+volumes:
+  scylla-data:
+networks:
+  base-network:
+    driver: bridge

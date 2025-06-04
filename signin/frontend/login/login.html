@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <form id="login-form" class="form-card">
+      <h1 class="form-title">Log In</h1>
+
+      <div class="form-group">
+        <label for="user_name">User ID</label>
+        <input type="text" id="user_name" placeholder="Enter your user ID" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+      </div>
+
+      <button type="submit" class="submit-btn">Log In</button>
+      <button type="button" id="forget-btn" class="submit-btn">Forget Password</button>
+    </form>
+  </main>
+
+  <!-- Forget Password Modal (outside form) -->
+  <div id="forget-password-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Recover Password</h2>
+      <form id="recover-form">
+        <div class="form-group">
+          <label for="recover-email">Gmail</label>
+          <input type="email" id="recover-email" placeholder="Enter your Gmail" required />
+        </div>
+        <div class="form-group">
+          <label for="recover-phone">Phone Number</label>
+          <input type="text" id="recover-phone" placeholder="Enter your phone number" required />
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+        <button type="button" id="close-modal" class="submit-btn cancel">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

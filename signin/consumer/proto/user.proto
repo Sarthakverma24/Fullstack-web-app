@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "awesomeProject/signin/proto;user";
+
+service UserService {
+  rpc SignIn (UserRequest) returns (UserResponse);
+}
+
+message UserRequest {
+  string username = 1;
+  string gmail = 2;
+}
+
+message UserResponse {
+  string message = 1;
+}
+

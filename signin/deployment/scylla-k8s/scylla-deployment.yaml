@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scylla
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scylla
+  template:
+    metadata:
+      labels:
+        app: scylla
+    spec:
+      containers:
+        - name: scylla
+          image: scylladb/scylla
+          args: ["--smp", "1", "--overprovisioned", "1"]
+          ports:
+            - containerPort: 9042
+          volumeMounts:
+            - mountPath: /var/lib/scylla
+              name: scylla-volume
+      volumes:
+        - name: scylla-volume
+          persistentVolumeClaim:
+            claimName: scylla-pvc
